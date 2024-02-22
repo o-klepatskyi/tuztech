@@ -7,11 +7,10 @@ plugins {
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.allopen") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
-    kotlin("kapt") version "1.9.22"
 }
 
-group = "com.example"
-version = "0.0.1-SNAPSHOT"
+group = "ua.edu.ukma.tuztech"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -24,10 +23,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    // runtimeOnly("com.h2database:h2")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
-    kapt("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
     }
