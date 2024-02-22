@@ -9,10 +9,10 @@ class User(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
-    @Column(nullable = false)
+    @Column(name="first_name", nullable = false)
     val firstName: String,
 
-    @Column(nullable = false)
+    @Column(name="last_name", nullable = false)
     val lastName: String,
 
     @Column(nullable = false)
