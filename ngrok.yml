@@ -1,0 +1,5 @@
+version: 2
+tunnels:
+  spring-boot-app:
+    proto: http
+    addr: app:8080
