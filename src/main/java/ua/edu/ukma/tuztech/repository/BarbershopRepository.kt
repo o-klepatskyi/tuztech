@@ -1,6 +1,6 @@
 package ua.edu.ukma.tuztech.repository
 
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import ua.edu.ukma.tuztech.entity.Barbershop
 
-interface BarbershopRepository : CrudRepository<Barbershop, Long>
+interface BarbershopRepository : JpaRepository<Barbershop, Long>
