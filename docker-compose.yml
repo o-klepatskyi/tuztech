@@ -37,3 +37,4 @@ services:
       - "/etc/ngrok.yml"
     volumes:
       - ./ngrok.yml:/etc/ngrok.yml
+    profiles: [use_ngrok]
