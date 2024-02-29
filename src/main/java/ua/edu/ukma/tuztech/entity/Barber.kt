@@ -12,7 +12,7 @@ class Barber(
 
     val lastName: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "barbershop_id")
     val barbershop: Barbershop
 )

@@ -13,6 +13,7 @@ import ua.edu.ukma.tuztech.service.VisitService
 class VisitController(private val visitService: VisitService) {
 
     @PostMapping(
+        "/visit/register",
         consumes = [MediaType.APPLICATION_JSON_VALUE],
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
@@ -22,7 +23,7 @@ class VisitController(private val visitService: VisitService) {
     }
 
     @PutMapping(
-        "/{visitId}",
+        "/visit/{visitId}",
         consumes = [MediaType.APPLICATION_JSON_VALUE],
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
@@ -31,19 +32,19 @@ class VisitController(private val visitService: VisitService) {
         return ResponseEntity(visit, HttpStatus.OK)
     }
 
-    @DeleteMapping("/{visitId}")
+    @DeleteMapping("/visit/{visitId}")
     fun deleteVisit(@PathVariable visitId: Long): ResponseEntity<Void> {
         visitService.deleteVisit(visitId)
         return ResponseEntity(HttpStatus.NO_CONTENT)
     }
 
-    @GetMapping("/{visitId}", produces = [MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping("/visit/{visitId}", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getVisitById(@PathVariable visitId: Long): ResponseEntity<VisitResponse> {
         val visit = visitService.getVisitById(visitId)
         return ResponseEntity(visit, HttpStatus.OK)
     }
 
-    @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping("/visit", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getAllVisits(): ResponseEntity<List<VisitResponse>> {
         val visits = visitService.getAllVisits()
         return ResponseEntity(visits, HttpStatus.OK)
