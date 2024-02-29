@@ -2,70 +2,40 @@ package ua.edu.ukma.tuztech.controller
 
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
-import ua.edu.ukma.tuztech.entity.User
-import ua.edu.ukma.tuztech.repository.UserRepository
+import ua.edu.ukma.tuztech.dto.EditUserRequest
+import ua.edu.ukma.tuztech.dto.RegisterRequest
+import ua.edu.ukma.tuztech.service.UserService
 
 @RestController
 class UserController(
-    private val userRepository : UserRepository
+    private val userService: UserService
 ) {
-    @PostMapping("/user/register", consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun register(@RequestBody req : RegisterRequest): Any? {
-        val user = User(
-            0,
-            req.firstName,
-            req.lastName,
-            req.email,
-            req.password
-        )
-        userRepository.save(user)
-        return user
+    @PostMapping(
+        "/user/register",
+        consumes = [MediaType.APPLICATION_JSON_VALUE],
+        produces = [MediaType.APPLICATION_JSON_VALUE]
+    )
+    fun register(@RequestBody req: RegisterRequest): Any? {
+        return userService.registerUser(req)
     }
 
     @PutMapping("/user/{userId}")
-    fun edit(@PathVariable userId : Long, @RequestBody req : EditUserRequest) : Any? {
-        val user = User(
-            userId,
-            req.firstName,
-            req.lastName,
-            req.email,
-            req.password
-        )
-        if (userRepository.findById(userId).isEmpty)
-            throw RuntimeException("User not found")
-        userRepository.save(user)
-        return user
+    fun edit(@PathVariable userId: Long, @RequestBody req: EditUserRequest): Any? {
+        return userService.editUser(userId, req)
     }
 
     @DeleteMapping("/user/{userId}")
-    fun delete(@PathVariable userId : Long) {
-        userRepository.deleteById(userId)
+    fun delete(@PathVariable userId: Long) {
+        userService.deleteUser(userId)
     }
 
     @GetMapping("/user/{userId}")
     fun getOne(@PathVariable userId: Long): Any? {
-        val user = userRepository.findById(userId)
-        if (user.isEmpty) throw RuntimeException("User not found")
-        return user
+        return userService.getUserById(userId)
     }
 
     @GetMapping("/user")
     fun getAll(): Any? {
-        val users = userRepository.findAll()
-        return users
+        return userService.getAllUsers()
     }
-
-    data class RegisterRequest (
-        val firstName: String,
-        val lastName: String,
-        val email: String,
-        val password: String,
-    )
-
-    data class EditUserRequest (
-        val firstName: String,
-        val lastName: String,
-        val email: String,
-        val password: String,
-    )
 }

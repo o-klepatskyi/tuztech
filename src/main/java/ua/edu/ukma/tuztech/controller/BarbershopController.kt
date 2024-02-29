@@ -2,70 +2,40 @@ package ua.edu.ukma.tuztech.controller
 
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
-import ua.edu.ukma.tuztech.entity.Barbershop
-import ua.edu.ukma.tuztech.repository.BarbershopRepository
+import ua.edu.ukma.tuztech.dto.AddBarbershopRequest
+import ua.edu.ukma.tuztech.dto.EditBarbershopRequest
+import ua.edu.ukma.tuztech.service.BarbershopService
 
 @RestController
 class BarbershopController(
-    private val barbershopRepository : BarbershopRepository
+    private val barbershopService: BarbershopService
 ) {
-    @PostMapping("/barbershop", consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun register(@RequestBody req : AddBarbershopRequest): Any? {
-        val barbershop = Barbershop(
-            0,
-            req.name,
-            req.address,
-            req.lat,
-            req.lng
-        )
-        barbershopRepository.save(barbershop)
-        return barbershop
+    @PostMapping(
+        "/barbershop",
+        consumes = [MediaType.APPLICATION_JSON_VALUE],
+        produces = [MediaType.APPLICATION_JSON_VALUE]
+    )
+    fun register(@RequestBody req: AddBarbershopRequest): Any? {
+        return barbershopService.registerBarbershop(req)
     }
 
     @PutMapping("/barbershop/{barbershopId}")
-    fun edit(@PathVariable barbershopId : Long, @RequestBody req : EditBarbershopRequest) : Any? {
-        val barbershop = Barbershop(
-            barbershopId,
-            req.name,
-            req.address,
-            req.lat,
-            req.lng
-        )
-        if (barbershopRepository.findById(barbershopId).isEmpty)
-            throw RuntimeException("User not found")
-        barbershopRepository.save(barbershop)
-        return barbershop
+    fun edit(@PathVariable barbershopId: Long, @RequestBody req: EditBarbershopRequest): Any? {
+        return barbershopService.editBarbershop(barbershopId, req)
     }
 
     @DeleteMapping("/barbershop/{barbershopId}")
-    fun delete(@PathVariable barbershopId : Long) {
-        barbershopRepository.deleteById(barbershopId)
+    fun delete(@PathVariable barbershopId: Long) {
+        barbershopService.deleteBarbershop(barbershopId)
     }
 
     @GetMapping("/barbershop/{barbershopId}")
     fun getOne(@PathVariable barbershopId: Long): Any? {
-        val barbershop = barbershopRepository.findById(barbershopId)
-        if (barbershop.isEmpty) throw RuntimeException("User not found")
-        return barbershop
+        return barbershopService.getBarbershopById(barbershopId)
     }
 
     @GetMapping("/barbershop")
     fun getAll(): Any? {
-        val users = barbershopRepository.findAll()
-        return users
+        return barbershopService.getAllBarbershops()
     }
-
-    data class AddBarbershopRequest (
-        val name: String,
-        val address: String,
-        val lat: Double?,
-        val lng: Double?
-    )
-
-    data class EditBarbershopRequest (
-        val name: String,
-        val address: String,
-        val lat: Double?,
-        val lng: Double?
-    )
 }
