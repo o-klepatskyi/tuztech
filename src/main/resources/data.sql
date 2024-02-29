@@ -1,6 +1,6 @@
 INSERT INTO users (first_name, last_name, email, password)
 VALUES
-    ('admin', 'admin', 'admin@tuz.com', 'admin'),
+    ('admin', 'admin', 'admin@tuz.com', '$2a$10$NtoHOZgY.h1UO9gw4NnnAOy9nLvAGMpHMYnAojnNYGOXV8F5bDuEe'),
     ('John', 'Doe', 'john.doe@example.com', 'password123'),
     ('Alice', 'Smith', 'alice.smith@example.com', 'secret456'),
     ('Bob', 'Johnson', 'bob.johnson@example.com', 'foobar789');

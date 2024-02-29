@@ -44,6 +44,10 @@ class UserService(private val userRepository: UserRepository) {
             .orElseThrow { RuntimeException("User not found") }
     }
 
+    fun getUserByEmail(email: String): User? {
+        return userRepository.findByEmail(email)
+    }
+
     fun getAllUsers(): List<User> {
         return userRepository.findAll()
     }
