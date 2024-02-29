@@ -28,7 +28,7 @@ class BarbershopService(private val barbershopRepository: BarbershopRepository) 
             request.lng
         )
         if (barbershopRepository.findById(barbershopId).isEmpty)
-            throw RuntimeException("User not found")
+            throw RuntimeException("Barbershop not found")
         return barbershopRepository.save(barbershop)
     }
 
