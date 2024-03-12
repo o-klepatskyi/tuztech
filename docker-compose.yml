@@ -9,11 +9,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "6001:5432"
   app:
     build: ./
     ports:
-      - "8080:8080"
+      - "8999:8080"
     depends_on:
       - db
     environment:
@@ -21,20 +21,20 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
-  ngrok:
-    image: ngrok/ngrok:latest
-    restart: unless-stopped
-    ports:
-      - "4040:4040"
-    depends_on:
-      - app
-    environment:
-      NGROK_AUTHTOKEN: ${NGROK_AUTH}
-    command:
-      - "start"
-      - "--all"
-      - "--config"
-      - "/etc/ngrok.yml"
-    volumes:
-      - ./ngrok.yml:/etc/ngrok.yml
-    profiles: [use_ngrok]
+#  ngrok:
+#    image: ngrok/ngrok:latest
+#    restart: unless-stopped
+#    ports:
+#      - "4040:4040"
+#    depends_on:
+#      - app
+#    environment:
+#      NGROK_AUTHTOKEN: ${NGROK_AUTH}
+#    command:
+#      - "start"
+#      - "--all"
+#      - "--config"
+#      - "/etc/ngrok.yml"
+#    volumes:
+#      - ./ngrok.yml:/etc/ngrok.yml
+#    profiles: [use_ngrok]
