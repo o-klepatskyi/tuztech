@@ -3,7 +3,6 @@ Barbershop app for Software Project Structures course
 ## How to build
 Install gradle, docker.
 ```
-./gradlew build
 docker compose create
 docker compose start
 ```

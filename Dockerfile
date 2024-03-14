@@ -1,4 +1,4 @@
-FROM openjdk:latest
-ADD ../build/libs/tuzello-0.0.1.jar /app/tuzello.jar
-ENTRYPOINT ["java", "-jar","/app/tuzello.jar"]
-EXPOSE 8080
+FROM --platform=linux/amd64 gradle:8.5.0-jdk17-alpine
+COPY --chown=gradle:gradle . /app
+WORKDIR /app
+ENTRYPOINT ["gradle", "bootRun"]
