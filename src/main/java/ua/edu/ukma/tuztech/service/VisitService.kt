@@ -1,9 +1,7 @@
 package ua.edu.ukma.tuztech.service
 
 import org.springframework.stereotype.Service
-import ua.edu.ukma.tuztech.dto.AddVisitRequest
-import ua.edu.ukma.tuztech.dto.EditVisitRequest
-import ua.edu.ukma.tuztech.dto.VisitResponse
+import ua.edu.ukma.tuztech.dto.*
 import ua.edu.ukma.tuztech.entity.Visit
 import ua.edu.ukma.tuztech.repository.BarberRepository
 import ua.edu.ukma.tuztech.repository.UserRepository
@@ -72,10 +70,32 @@ class VisitService(
     }
 
     private fun toVisitResponse(visit: Visit): VisitResponse {
+        val user = UserResponse(
+            id = visit.user.id,
+            email = visit.user.email,
+            name = visit.user.firstName + " " + visit.user.lastName,
+            password = visit.user.password
+        )
+
+        val barbershop = BarbershopResponse(
+            id = visit.barber.barbershop.id,
+            name = visit.barber.barbershop.name,
+            address = visit.barber.barbershop.address,
+            lat = visit.barber.barbershop.lat,
+            lng = visit.barber.barbershop.lng
+        )
+
+        val barber = BarberResponse(
+            id = visit.barber.id,
+            firstName = visit.barber.firstName,
+            lastName = visit.barber.lastName
+        )
+
         return VisitResponse(
             id = visit.id,
-            barberId = visit.barber.id,
-            userId = visit.user.id,
+            barber = barber,
+            user = user,
+            barbershop = barbershop,
             datetime = visit.datetime,
             durationMin = visit.durationMin
         )

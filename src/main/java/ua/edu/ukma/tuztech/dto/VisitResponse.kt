@@ -4,8 +4,30 @@ import java.time.LocalDateTime
 
 data class VisitResponse(
     val id: Long,
-    val barberId: Long,
-    val userId: Long,
+    val barber: BarberResponse,
+    val barbershop: BarbershopResponse,
+    val user: UserResponse,
     val datetime: LocalDateTime,
     val durationMin: Int
+)
+
+data class BarberResponse(
+    val id: Long,
+    val firstName: String,
+    val lastName: String,
+)
+
+data class BarbershopResponse(
+    val id: Long,
+    val name: String,
+    val address: String,
+    val lat: Double?,
+    val lng: Double?
+)
+
+data class UserResponse(
+    val id: Long,
+    val name: String,
+    val email: String,
+    val password: String
 )
