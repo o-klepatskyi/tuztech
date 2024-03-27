@@ -18,5 +18,7 @@ class Barbershop(
     val lat: Double?,
 
     @Column(nullable = true)
-    val lng: Double?
+    val lng: Double?,
+
+    val imageUrl: String
 )

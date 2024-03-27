@@ -14,7 +14,8 @@ class BarbershopService(private val barbershopRepository: BarbershopRepository) 
             name = request.name,
             address = request.address,
             lat = request.lat,
-            lng = request.lng
+            lng = request.lng,
+            imageUrl = request.imageUrl
         )
         return barbershopRepository.save(barbershop)
     }
@@ -25,7 +26,8 @@ class BarbershopService(private val barbershopRepository: BarbershopRepository) 
             request.name,
             request.address,
             request.lat,
-            request.lng
+            request.lng,
+            request.imageUrl
         )
         if (barbershopRepository.findById(barbershopId).isEmpty)
             throw RuntimeException("Barbershop not found")

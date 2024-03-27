@@ -21,6 +21,7 @@ class BarberService(
             firstName = request.firstName,
             lastName = request.lastName,
             barbershop = barbershop,
+            imageUrl = request.imageUrl
         )
         return barberRepository.save(barber)
     }
@@ -36,6 +37,7 @@ class BarberService(
             request.firstName,
             request.lastName,
             barbershop,
+            request.imageUrl
         )
         return barberRepository.save(barber)
     }

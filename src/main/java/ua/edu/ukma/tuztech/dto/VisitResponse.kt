@@ -15,6 +15,7 @@ data class BarberResponse(
     val id: Long,
     val firstName: String,
     val lastName: String,
+    val imageUrl: String
 )
 
 data class BarbershopResponse(
@@ -22,7 +23,8 @@ data class BarbershopResponse(
     val name: String,
     val address: String,
     val lat: Double?,
-    val lng: Double?
+    val lng: Double?,
+    val imageUrl: String
 )
 
 data class UserResponse(

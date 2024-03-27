@@ -14,5 +14,7 @@ class Barber(
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "barbershop_id")
-    val barbershop: Barbershop
+    val barbershop: Barbershop,
+
+    val imageUrl: String
 )

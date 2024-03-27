@@ -4,5 +4,6 @@ data class AddBarbershopRequest(
     val name: String,
     val address: String,
     val lat: Double?,
-    val lng: Double?
+    val lng: Double?,
+    val imageUrl: String
 )

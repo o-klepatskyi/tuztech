@@ -82,13 +82,15 @@ class VisitService(
             name = visit.barber.barbershop.name,
             address = visit.barber.barbershop.address,
             lat = visit.barber.barbershop.lat,
-            lng = visit.barber.barbershop.lng
+            lng = visit.barber.barbershop.lng,
+            imageUrl = visit.barber.barbershop.imageUrl
         )
 
         val barber = BarberResponse(
             id = visit.barber.id,
             firstName = visit.barber.firstName,
-            lastName = visit.barber.lastName
+            lastName = visit.barber.lastName,
+            imageUrl = visit.barber.imageUrl
         )
 
         return VisitResponse(
