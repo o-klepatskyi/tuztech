@@ -21,7 +21,14 @@ VALUES
     ('Christopher', 'Wilson', 3, 'https://titlecitybarbers.com/assets/static/joey.7474da0.b51048af33aad033c1d14482720d4410.jpg'),
     ('Jessica', 'Brown', 4, 'https://img.freepik.com/free-photo/confident-looking-young-beautiful-female-barber-uniform-holding-scissors-with-comb-isolated-pink-wall_141793-105656.jpg'),
     ('Jennifer', 'Davis', 5, 'https://img.freepik.com/free-photo/confident-young-slavic-female-barber-wearing-uniform-standing-profile-view-holding-spray-bottle-straight-razor-comb_141793-98515.jpg'),
-    ('Matthew', 'Miller', 6, 'https://360degreebarbershop.com/wp-content/uploads/2023/06/lucas-barber-pose.jpg');
+    ('Matthew', 'Miller', 6, 'https://360degreebarbershop.com/wp-content/uploads/2023/06/lucas-barber-pose.jpg'),
+    ('Emma', 'Martinez', 1, 'https://d2zdpiztbgorvt.cloudfront.net/region1/us/433722/biz_photo/4df63723463d4c37957e86644daa0e-high-profile-barber-studio-llc-biz-photo-68903aaa7b044b3ba6d9cad42abb21-booksy.jpeg?size=640x427'),
+    ('Olivia', 'Hernandez', 2, 'https://hollywoodlife.com/wp-content/uploads/2016/02/andrea-barber.jpg?quality=100'),
+    ('Sophia', 'Garcia', 3, 'https://www.open.ac.uk/people/sites/www.open.ac.uk.people/files/styles/profile_photo/public/photos/221117OUHS_0130.JPG?itok=x78bgU4w'),
+    ('William', 'Lopez', 4, 'https://pbs.twimg.com/profile_images/1467041418526875651/ruvUfSVu_400x400.jpg'),
+    ('James', 'Gonzalez', 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtSqqKXM29GIG_JAgWYKHMNqcawakRECpICQ0esjFLg&s'),
+    ('Benjamin', 'Rodriguez', 6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmXCLxjvXg02Pxblob14kNCIsjA2gEUDiJUHyXCU8Ug&s'),
+    ('Ethan', 'Perez', 1, 'https://londonspeakerbureau.com/wp-content/uploads/2017/04/keynote-speaker-lionel-barber.png');
 
 INSERT INTO visit (barber_id, user_id, datetime, duration_min)
 VALUES
