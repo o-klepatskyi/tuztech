@@ -28,7 +28,8 @@ VALUES
     ('William', 'Lopez', 4, 'https://pbs.twimg.com/profile_images/1467041418526875651/ruvUfSVu_400x400.jpg'),
     ('James', 'Gonzalez', 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtSqqKXM29GIG_JAgWYKHMNqcawakRECpICQ0esjFLg&s'),
     ('Benjamin', 'Rodriguez', 6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmXCLxjvXg02Pxblob14kNCIsjA2gEUDiJUHyXCU8Ug&s'),
-    ('Ethan', 'Perez', 1, 'https://londonspeakerbureau.com/wp-content/uploads/2017/04/keynote-speaker-lionel-barber.png');
+    ('Ethan', 'Perez', 1, 'https://londonspeakerbureau.com/wp-content/uploads/2017/04/keynote-speaker-lionel-barber.png'),
+    ('Oleg', 'Clown', 1, 'https://raw.githubusercontent.com/o-klepatskyi/tuztech/master/src/main/resources/barber.jpg')
 
 INSERT INTO visit (barber_id, user_id, datetime, duration_min)
 VALUES
