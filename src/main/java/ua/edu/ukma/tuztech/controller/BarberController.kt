@@ -38,4 +38,9 @@ class BarberController(private val barberService: BarberService) {
     fun getAll(): List<Barber> {
         return barberService.getAllBarbers()
     }
+
+    @GetMapping("/barber/barbershop/{barbershopId}")
+    fun getAllByBarbershop(@PathVariable barbershopId: Long): List<Barber> {
+        return barberService.getAllBarbersByBarbershopId(barbershopId)
+    }
 }

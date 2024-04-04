@@ -54,6 +54,10 @@ class BarberService(
             .orElseThrow { RuntimeException("Barber not found") }
     }
 
+    fun getAllBarbersByBarbershopId(barbershopId: Long): List<Barber> {
+        return barberRepository.findAllByBarbershopId(barbershopId)
+    }
+
     fun getAllBarbers(): List<Barber> {
         return barberRepository.findAll()
     }
